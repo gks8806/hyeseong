@@ -31,7 +31,7 @@
 		</article>
 	</section>
 	<footer>
-		<p class="hyeseong">주소: 충남 천안시 성정동 롯데마트 4층 하이마트 매장내</p>
+		<p class="hyeseong">주소: 충남 천안시 성정동 롯데마트 4층 하이마트 매장내임</p>
 
 	</footer>
 
