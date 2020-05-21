@@ -18,7 +18,25 @@ import org.springframework.web.bind.annotation.RequestMethod;
 public class HomeController {
 	
 	private static final Logger logger = LoggerFactory.getLogger(HomeController.class);
-	
+	/**
+	 * html5테스트 파일 입니다.
+	 * @param locale
+	 * @param model
+	 * @return
+	 */
+	@RequestMapping(value = "/HTMLTEST", method = RequestMethod.GET)
+	public String HTMLTEST(Locale locale, Model model) {
+		logger.info("Welcome home! The client locale is {}.", locale);
+		
+		Date date = new Date();
+		DateFormat dateFormat = DateFormat.getDateTimeInstance(DateFormat.LONG, DateFormat.LONG, locale);
+		
+		String formattedDate = dateFormat.format(date);
+		
+		model.addAttribute("serverTime", formattedDate );
+		
+		return "HTMLTEST";
+	}
 	/**
 	 * Simply selects the home view to render by returning its name.
 	 */
