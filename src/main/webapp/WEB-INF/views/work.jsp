@@ -42,7 +42,45 @@ position:absolute;
 top:0;
 left:0;
 z-index:10;
+width:100%;
+height:100%;
+background:#3f51b5;
+content:"";
+opacity:0;
+transition:all 0.2s;
 }
+.work-section .work-list li a:hover:before {
+opacity:0.86;
+}
+.work-section .work-list li .info {
+position:absolute;
+top:0;
+left:23px;
+z-index:20;
+opacity:0;
+transition:all 0.3s;
+}
+.work-section .work-list li a:hover .info {
+transform:tanslateY(23px);
+opacity:1;
+}
+.work-section .work-list li .info h3 {
+margin-bottom:8px;
+font-size:23px;
+color:#fff;
+font-weight:normal;
+}
+.work-section .work-list li .info span {
+font-size:11px;
+color:#fff;
+}
+.work-section .work-list li img {
+display:block;
+width:100%;
+max-width:100%;
+height:auto;
+}
+
 </style>
 
 <!-- 사용자 스크립트 -->
