@@ -27,7 +27,7 @@ height:auto;
 </style>
 
 <!-- 사용자 스크립트 -->
-<script src="/resources/js/min.js"></script>
+<script src="/resources/js/jquery.min.js"></script>
 <script src="/resources/js/common.js"></script>
 <script>
 
