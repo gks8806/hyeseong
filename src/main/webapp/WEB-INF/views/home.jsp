@@ -13,6 +13,7 @@
 <link rel="apple-touch-icon-precomposed"
 	href="/images/favicon/home-touch-icon.png">
 <link rel="stylesheet" type="text/css" href="/resources/css/reset.css">
+
 <link rel="stylesheet" type="text/css" href="/resources/css/common.css">
 
 <style>
@@ -26,7 +27,7 @@ height:auto;
 </style>
 
 <!-- 사용자 스크립트 -->
-<script src="http://code.jquery.com/jquery-latest.min.js"></script>
+<script src="/resources/js/min.js"></script>
 <script src="/resources/js/common.js"></script>
 <script>
 
