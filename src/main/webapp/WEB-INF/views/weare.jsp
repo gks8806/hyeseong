@@ -37,7 +37,7 @@ margin-top:52px;
 text-align:center;
 }
 .promotion-section .promo-list li:first-child{
-margin-top:-30px;
+margin-top:0px;
 }
 .promotion-section .promo-list li img {
 height:52px; 
@@ -52,6 +52,31 @@ font-size:14px;
 font-family:"궁서";
 color:#616161;
 line-height:1.5;
+}
+/* 태블릿용 CSS*/
+@media all and (min-width:768px) {
+.display-section {
+margin-top:95px;
+}
+/* 테블릿 WE ARE 내용 영역*/
+.promotion-section {
+margin-top:110px;
+}
+.promotion-section .promo-list li {
+float:left; /*세로로 나열된 컨텐츠르 가로로 배치 하는 역할*/
+width:23.046875%; /* 177px / 768px */
+margin-left:2.60416666666667%; /* 20px/768px*/
+margin-top:0;
+}
+/* [가변그리드공식] = 결과는 % 단위 입니다.
+  [가변element값 %] = (가변크기로 만들 박스의 가로 너비 / 가변그키로 만들 박스를 감싸고 있는 박스의 가로 너비) X 100 
+  [가변마진값 %] = (가변 마진을 적용할 마진값 / 적용할 박스를 감싸고 있는 박스의 가로 너비) X 100
+  [가변패딩값 %] = (가변 패딩을 적용할 패딩값 / 적용할 박스를 감싸고 있는 박스의 가로 너비) X 100
+  */
+.promotion-section .promo-list li:first-child{
+margin-left:0;
+}
+
 }
 </style>
 
@@ -95,22 +120,22 @@ line-height:1.5;
 			<section class="promotion-section">
 				<div class="container">
 					<ul class="promo-list">
-						<li><a href="#"> <img src="/resources/images/happy.jpg"
+						<li><a href="#" onclick="return false"> <img src="/resources/images/happy.jpg"
 								alt="">
 								<h3>HOME</h3>
 								<p>휴면 교육센터 디지털 컨버전스 과정 입니다.</p>
 						</a></li>
-						<li><a href="#"> <img src="/resources/images/happy.jpg"
+						<li><a href="#" onclick="return false"> <img src="/resources/images/happy.jpg"
 								alt="">
 								<h3>HOME</h3>
 								<p>휴면 교육센터 디지털 컨버전스 과정 입니다.</p>
 						</a></li>
-						<li><a href="#"> <img src="/resources/images/happy.jpg"
+						<li><a href="#" onclick="return false"> <img src="/resources/images/happy.jpg"
 								alt="">
 								<h3>HOME</h3>
 								<p>휴면 교육센터 디지털 컨버전스 과정 입니다.</p>
 						</a></li>
-						<li><a href="#"> <img src="/resources/images/happy.jpg"
+						<li><a href="#" onclick="return false"> <img src="/resources/images/happy.jpg"
 								alt="">
 								<h3>HOME</h3>
 								<p>휴면 교육센터 디지털 컨버전스 과정 입니다.</p>

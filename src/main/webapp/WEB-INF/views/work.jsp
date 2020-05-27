@@ -80,7 +80,27 @@ width:100%;
 max-width:100%;
 height:auto;
 }
-
+ /* 태블릿용 CSS */
+ @media all and (min-width:768px) {
+ /* 태블릿 WORK 영역 CSS */
+ .work-section {
+ margin-top:118px;
+ }
+ .work-section .sec-tit {
+ margin-bottom:76px:
+ }
+ .work-section .work-list li {
+ float:left;
+ width:50%;
+ }
+ .work-section .work-list li .info {
+ left:37px;
+ }
+ .work-section .work-list li a:hover .info {
+ transform:translateY(37px);
+ }
+ 
+ }
 </style>
 
 <!-- 사용자 스크립트 -->
@@ -113,7 +133,7 @@ height:auto;
 <h2 class="sec-tit">WORK</h2>
 <ul class="work-list">
 <li>
-<a href="#">
+<a href="#" onclick="return false">
 <div class="info">
 <h3>직업1</h3>
 <span>소스/작업1</span>
@@ -122,7 +142,7 @@ height:auto;
 </a>
 </li>
 <li>
-<a href="#">
+<a href="#" onclick="return false">
 <div class="info">
 <h3>직업1</h3>
 <span>소스/작업1</span>
@@ -130,7 +150,7 @@ height:auto;
 <img src="/resources/images/happy.jpg" alt="">
 </a>
 </li><li>
-<a href="#">
+<a href="#" onclick="return false">
 <div class="info">
 <h3>직업1</h3>
 <span>소스/작업1</span>
@@ -138,7 +158,7 @@ height:auto;
 <img src="/resources/images/happy.jpg" alt="">
 </a>
 </li><li>
-<a href="#">
+<a href="#" onclick="return false">
 <div class="info">
 <h3>직업1</h3>
 <span>소스/작업1</span>
@@ -146,7 +166,7 @@ height:auto;
 <img src="/resources/images/happy.jpg" alt="">
 </a>
 </li><li>
-<a href="#">
+<a href="#" onclick="return false">
 <div class="info">
 <h3>직업1</h3>
 <span>소스/작업1</span>
@@ -154,7 +174,7 @@ height:auto;
 <img src="/resources/images/happy.jpg" alt="">
 </a>
 </li><li>
-<a href="#">
+<a href="#" onclick="return false">
 <div class="info">
 <h3>직업1</h3>
 <span>소스/작업1</span>
@@ -162,7 +182,7 @@ height:auto;
 <img src="/resources/images/happy.jpg" alt="">
 </a>
 </li><li>
-<a href="#">
+<a href="#" onclick="return false">
 <div class="info">
 <h3>직업1</h3>
 <span>소스/작업1</span>
@@ -170,7 +190,7 @@ height:auto;
 <img src="/resources/images/happy.jpg" alt="">
 </a>
 </li><li>
-<a href="#">
+<a href="#" onclick="return false">
 <div class="info">
 <h3>직업1</h3>
 <span>소스/작업1</span>
