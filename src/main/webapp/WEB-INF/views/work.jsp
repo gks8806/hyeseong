@@ -14,23 +14,22 @@
 	href="/images/favicon/home-touch-icon.png">
 <link rel="stylesheet" type="text/css" href="/resources/css/reset.css">
 <link rel="stylesheet" type="text/css" href="/resources/css/common.css">
-
 <style>
-/* WORK 영역 CSS*/
-.work-section{
+/* WORK 영역 CSS */
+.work-section {
 margin-top:73px;
 }
-.work-section .sec-tit{
+.work-section .sec-tit {
 width:90%;
-max-width:1132px;
 margin:0 auto;
+max-width:1132px;
 margin-bottom:47px;
 text-align:center;
 }
-.work-section .work-list li{
+.work-section .work-list li {
 width:100%;
 }
-.work-section .work-list li a{
+.work-section .work-list li a {
 display:block;
 position:relative;
 width:100%;
@@ -61,13 +60,13 @@ opacity:0;
 transition:all 0.3s;
 }
 .work-section .work-list li a:hover .info {
-transform:tanslateY(23px);
+transform:translateY(23px);
 opacity:1;
 }
 .work-section .work-list li .info h3 {
 margin-bottom:8px;
 font-size:23px;
-color:#fff;
+color:#ffffff;
 font-weight:normal;
 }
 .work-section .work-list li .info span {
@@ -80,27 +79,35 @@ width:100%;
 max-width:100%;
 height:auto;
 }
- /* 태블릿용 CSS */
- @media all and (min-width:768px) {
- /* 태블릿 WORK 영역 CSS */
- .work-section {
- margin-top:118px;
- }
- .work-section .sec-tit {
- margin-bottom:76px:
- }
- .work-section .work-list li {
- float:left;
- width:50%;
- }
- .work-section .work-list li .info {
- left:37px;
- }
- .work-section .work-list li a:hover .info {
- transform:translateY(37px);
- }
- 
- }
+/* 태블릿용 CSS */
+@media all and (min-width:768px) {
+/* 태블릿 WORK 영역 CSS */
+.work-section {
+margin-top:118px;
+}
+.work-section .sec-tit {
+margin-bottom:76px;
+}
+.work-section .work-list li {
+float:left;
+width:50%;
+}
+.work-section .work-list li .info {
+left:37px;
+}
+.work-section .work-list li a:hover .info {
+transform:translateY(37px);
+}
+}
+/* PC용 WORK영역 CSS */
+@media all and (min-width:1132px) {
+.work-section .sec-tit {
+text-align:left;
+}
+.work-section .work-list li {
+width:25%;
+}
+}
 </style>
 
 <!-- 사용자 스크립트 -->

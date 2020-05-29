@@ -15,14 +15,15 @@
 <link rel="stylesheet" type="text/css" href="/resources/css/reset.css">
 <link rel="stylesheet" type="text/css" href="/resources/css/common.css">
 <style>
+/* BLOG 영역 CSS */
 .blog-section {
 margin-top:77px;
 }
-.blog-section .sec-tit{
+.blog-section .sec-tit {
 margin-bottom:47px;
 text-align:center;
 }
-.blog-section .blog-list li{
+.blog-section .blog-list li {
 width:100%;
 margin-top:45px;
 }
@@ -46,8 +47,8 @@ color:#424242;
 font-weight:normal;
 line-height:1.6;
 }
- /* 태블릿용 CSS */ /* 태블릿 BLOG 영역 CSS */
- @media all and (min-width:768px) {
+/* 태블릿용 CSS */
+@media all and (min-width:768px) {
 .blog-section {
 margin-top:124px;
 }
@@ -57,15 +58,28 @@ margin-bottom:76px;
 .blog-section .blog-list li {
 float:left;
 width:31.59722222222%;
-margin-left:2.60416666666%;
+margin-left:2.60416666666%; 
 margin-top:0;
 }
 .blog-section .blog-list li:first-child {
 margin-left:0;
 }
-
-
- }
+}
+/* PC용 BLOG영역 CSS */
+@media all and (min-width:1132px) {
+.blog-section .sec-tit {
+float:left;
+margin-bottom:0;
+}
+.blog-section .blog-list {
+float:right;
+width:74.55555555555%;
+}
+.blog-sectoin .blog-list li {
+width:31.7535555555%;
+margin-left:2.36966666666%;
+}
+}
 </style>
 <script src="/resources/js/jquery.min.js"></script>
 <script src="/resources/js/common.js"></script>

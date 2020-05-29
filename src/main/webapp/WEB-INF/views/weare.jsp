@@ -14,33 +14,33 @@
 	href="/images/favicon/home-touch-icon.png">
 <link rel="stylesheet" type="text/css" href="/resources/css/reset.css">
 <link rel="stylesheet" type="text/css" href="/resources/css/common.css">
-
 <style>
 /* WE ARE 페이지 영역 CSS */
-.display-section{
+.display-section {
 margin-top:30px;
 text-align:center;
 }
-.display-section .sec-tit{
+.display-section .sec-tit {
 margin-bottom:30px;
 }
-.display-section .desc{
+.display-section .desc {
 font-family:"굴림";
 color:#616161;
-line-height:1,9;}
-/* WE ARE 내용 영역 CSS */
-.promotion-section{
+line-height:1.9;
+}
+/* We Are 내용 영역 CSS */
+.promotion-section {
 margin-top:68px;
 }
-.promotion-section .promo-list li{
+.promotion-section .promo-list li {
 margin-top:52px;
 text-align:center;
 }
-.promotion-section .promo-list li:first-child{
-margin-top:0px;
+.promotion-section .promo-list li:first-child {
+margin-top: 0px;
 }
 .promotion-section .promo-list li img {
-height:52px; 
+height:202px;
 }
 .promotion-section .promo-list li h3 {
 margin:29px 0 20px 0;
@@ -53,30 +53,62 @@ font-family:"궁서";
 color:#616161;
 line-height:1.5;
 }
-/* 태블릿용 CSS*/
+/* 태블릿용 CSS */
 @media all and (min-width:768px) {
+.promotion-section .promo-list li img {
+height:102px;
+}
 .display-section {
 margin-top:95px;
 }
-/* 테블릿 WE ARE 내용 영역*/
+/* 태블릿 WE ARE 내용 영역 */
 .promotion-section {
 margin-top:110px;
 }
 .promotion-section .promo-list li {
-float:left; /*세로로 나열된 컨텐츠르 가로로 배치 하는 역할*/
-width:23.046875%; /* 177px / 768px */
-margin-left:2.60416666666667%; /* 20px/768px*/
+float:left; /* 세로로 나열된 컨텐츠를 가로로 배치 하는 역할 */
+width:23.046875%; /* 177px / 768px */ 
+margin-left:2.60416666666667%;
+/* 20px / 768px */
 margin-top:0;
 }
-/* [가변그리드공식] = 결과는 % 단위 입니다.
-  [가변element값 %] = (가변크기로 만들 박스의 가로 너비 / 가변그키로 만들 박스를 감싸고 있는 박스의 가로 너비) X 100 
-  [가변마진값 %] = (가변 마진을 적용할 마진값 / 적용할 박스를 감싸고 있는 박스의 가로 너비) X 100
-  [가변패딩값 %] = (가변 패딩을 적용할 패딩값 / 적용할 박스를 감싸고 있는 박스의 가로 너비) X 100
-  */
-.promotion-section .promo-list li:first-child{
+.promotion-section .promo-list li:first-child {
 margin-left:0;
 }
-
+}
+/* PC용 CSS */
+@media all and (min-width:1132px) {
+/* PC WE ARE 영역 CSS */
+.display-section {
+text-align:left;
+}
+.display-section .sec-tit {
+float:left;
+margin-bottom:0;
+}
+.display-section .desc {
+position:relative;
+float:right;
+padding-left:20px;
+font-family:"바탕";
+color:#616161;
+line-height:1.9;
+}
+.display-section .desc:before {
+display:block;
+position:absolute;
+top:9px;
+left:0;
+width:2px;
+height:44px;
+background:#e0e0e0;
+content:"";
+}
+/* PC WE ARE 내용 영역 CSS */
+.promotion-section .promo-list li {
+width:23.674911111%;
+margin-left:1.7667844444%;
+}
 }
 </style>
 
