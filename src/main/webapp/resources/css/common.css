@@ -1,5 +1,22 @@
 @charset "UTF-8";
 /* 공통 CSS */
+@font-face { font-family: 'NanumGothic';
+src: url('/fonts/NanumGothic.eot');
+src: url('/fonts/NanumGothic.eot') format('embedded-opentype');}
+
+body {font-family: 'NanumGothic' !important;}
+
+.go_top {
+position: fixed;
+	right: 20px;
+	bottom: 112px;
+	text-align: center;
+	background: red;
+	z-index: 100;
+	padding: 20px;
+	opacity: 0.5;
+	color: #blue !important;
+}
 .container {
 width:90%;
 max-width:1132px;
@@ -64,6 +81,7 @@ margin:5px 0;
 /* 푸터 영역 CSS */
 .footer {
 margin-top:30px;
+background:skyblue;
 }
 .footer iframe {
 width:100%;

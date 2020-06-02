@@ -15,7 +15,10 @@
 <link rel="stylesheet" type="text/css" href="/resources/css/reset.css">
 <link rel="stylesheet" type="text/css" href="/resources/css/common.css">
 <link rel="stylesheet" type="text/css" href="/resources/css/user.css">
+
+
 <style>
+
 .go_top {
 position: fixed;
 	right: 20px;
@@ -41,7 +44,7 @@ position: fixed;
 	<div id="wrap">
 		<header class="header cfixed">
 			<h1 class="logo">
-				<a href="">LOGO</a>
+				<a href=""><img src="/resources/images/logo.png"></a>
 			</h1>
 			<nav>
 				<ul class="gnb">

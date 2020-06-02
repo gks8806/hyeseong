@@ -392,6 +392,9 @@ body footer p small a:hover, body footer p small a:active {
 	}
 }
 .nivo-caption { text-align:center !important;}
+
+.nivoSlider { height:700px !important; }
+.nivoSlider img { height:700px !important; }
 </style>
 <script src="/resources/js/jquery.min.js"></script>
 <script type="text/javascript">
@@ -456,10 +459,21 @@ body footer p small a:hover, body footer p small a:active {
   jQuery(function($) {
 	  $('#slider').nivoSlider({
 		  effect: 'slideInLeft',
-		  
-	  })
+		  directionNav: true,
+		  controlNav: false,
+		  pauseOnHover: false,
+		  prevText: '<span style="font-size:30px; color:#fff;padding-left:10px;"> &lt; </span>',
+		  nextText: '<span style="font-size:30px; color:#fff;padding-right:10px;"> &gt; </span>'		  
+	  });
 	  
-  })
+	  $('.nivo-prevNav').on('mouseover', function(){
+          $('#slider img').attr("data-transition","slideInRight");
+     });
+     $('.nivo-nextNav').on('mouseover', function(){
+          $('#slider img').attr("data-transition","slideInLeft");
+     });
+	  
+  });
   </script>
 	<section class="banner_slider">
 		<div id="slider" class="nivoSlider">
