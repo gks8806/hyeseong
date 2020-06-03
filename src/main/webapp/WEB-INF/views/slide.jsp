@@ -393,8 +393,19 @@ body footer p small a:hover, body footer p small a:active {
 }
 .nivo-caption { text-align:center !important;}
 
-.nivoSlider { height:700px !important; }
+.nivoSlider { height:900px !important; }
 .nivoSlider img { height:700px !important; }
+
+.row {
+margin-right:auto !important;
+margin-left: auto !important;
+}
+
+.carousel-inner .item img {
+	height: 700px !important;
+	width: 100% !important;
+}
+
 </style>
 <script src="/resources/js/jquery.min.js"></script>
 <script type="text/javascript">
@@ -452,7 +463,7 @@ body footer p small a:hover, body footer p small a:active {
 		</div>
 	</header>
 	<!-- e:header-->
-	
+	<!-- 니보슬라이더 작동스크립트
   <script src="/resources/js/jquery.nivo.slider.js"></script>
   <link href="/resources/css/nivo-slider.css" media="screen" rel="stylesheet" type="text/css">
   <script type="text/javascript">
@@ -474,15 +485,64 @@ body footer p small a:hover, body footer p small a:active {
      });
 	  
   });
-  </script>
+  </script> 
+  -->
+   <link href="/resources/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+   <!-- 모든 컴파일된 플러그인을 포함합니다 (아래), 원하지 않는다면 필요한 각각의 파일을 포함하세요 -->
+   <script src="/resources/bootstrap/js/bootstrap.min.js"></script>
+	<script>
+	jQuery(function($) {
+		$('.carousel').carousel({
+			  interval: 2000,
+			  pause: false
+			})
+	});
+	</script>
 	<section class="banner_slider">
+	<div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+  <ol class="carousel-indicators">
+    <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
+    <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
+    <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+    <li data-target="#carouselExampleIndicators" data-slide-to="3"></li>
+  </ol>
+  <div class="carousel-inner">
+    <div class="item active">
+      <img src="/resources/images/slide1.jpg" class="d-block w-100" alt="...">
+    </div>
+    <div class="item">
+      <img src="/resources/images/slide2.jpg" class="d-block w-100" alt="...">
+    </div>
+    <div class="item">
+      <img src="/resources/images/slide3.jpg" class="d-block w-100" alt="...">
+    </div>
+     <div class="item">
+      <img src="/resources/images/slide4.jpg" class="d-block w-100" alt="...">
+    </div>
+  </div>
+ <!-- 왼쪽 화살표 버튼 -->
+<!-- href는 carousel의 id를 가르킨다. -->
+<a class="left carousel-control" href="#carouselExampleIndicators" role="button" data-slide="prev">
+<!-- 왼쪽 화살표 -->
+<span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+</a>
+<!-- 오른쪽 화살표 버튼 -->
+<!-- href는 carousel의 id를 가르킨다. -->
+<a class="right carousel-control" href="#carouselExampleIndicators" role="button" data-slide="next">
+<!-- 오른쪽 화살표 -->
+<span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+</a>
+</div>
+	<!-- 니보슬라이더용 비즈니스폼 
 		<div id="slider" class="nivoSlider">
 			<img src="/resources/images/slide1.jpg" title="슬라이드1" />
 			<img src="/resources/images/slide2.jpg" title="슬라이드2" />
 			<img src="/resources/images/slide3.jpg" title="슬라이드3" />
 			<img src="/resources/images/slide4.jpg" title="슬라이드4" />
 		</div>
+	-->
 	</section>
+	
 	<section id="contents" class="row">
 		<article id="main">
 			<h2>타임스페이스는 사용자 중심의 웹페이지를 제작하는 회사 입니다. 그리고, 부가 사업으로 노트북/LCD모니터
