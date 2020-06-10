@@ -22,51 +22,60 @@ public class HomeController {
 	/**
 	 * slide 페이지 파일 입니다.
 	 */
-	@RequestMapping(value = "/slide", method = RequestMethod.GET)
+	@RequestMapping(value = "/sample/slide", method = RequestMethod.GET)
 	public String slide(Locale locale, Model model) {
 		
-		return "slide";
+		return "sample/slide";
 	}
 	/**
 	 * contactus 페이지 파일 입니다.
 	 */
-	@RequestMapping(value = "/contactus", method = RequestMethod.GET)
+	@RequestMapping(value = "/sample/contactus", method = RequestMethod.GET)
 	public String contactus(Locale locale, Model model) {
 		
-		return "contactus";
+		return "sample/contactus";
 	}
 	/**
 	 * blog 페이지 파일 입니다.
 	 */
-	@RequestMapping(value = "/blog", method = RequestMethod.GET)
+	@RequestMapping(value = "/sample/blog", method = RequestMethod.GET)
 	public String blog(Locale locale, Model model) {
 		
-		return "blog";
+		return "sample/blog";
 	}
 	/**
 	 * work 페이지 파일 입니다.
 	 */
-	@RequestMapping(value = "/work", method = RequestMethod.GET)
+	@RequestMapping(value = "/sample/work", method = RequestMethod.GET)
 	public String work(Locale locale, Model model) {
 		
-		return "work";
+		return "sample/work";
 	}
 	/**
 	 * weare 페이지 파일 입니다.
 	 */
-	@RequestMapping(value = "/weare", method = RequestMethod.GET)
+	@RequestMapping(value = "/sample/weare", method = RequestMethod.GET)
 	public String weare(Locale locale, Model model) {
 		
-		return "weare";
+		return "sample/weare";
 	}
 	
 	/**
 	 * html5테스트 파일 입니다.
 	 */
-	@RequestMapping(value = "/HTMLTEST", method = RequestMethod.GET)
+	@RequestMapping(value = "/sample/HTMLTEST", method = RequestMethod.GET)
 	public String HTMLTEST(Locale locale, Model model) {
 		
-		return "HTMLTEST";
+		return "sample/HTMLTEST";
+	}
+	
+	/**
+	 * 샘플 파일 홈 입니다.
+	 */
+	@RequestMapping(value = "/sample/", method = RequestMethod.GET)
+	public String sample(Locale locale, Model model) {
+		
+		return "sample/home";
 	}
 	
 	/**
