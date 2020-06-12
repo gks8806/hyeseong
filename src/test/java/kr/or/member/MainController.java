@@ -52,10 +52,15 @@ public class MainController {
 		timeClient.setDefaultTimeout(1000);
 		try {
 			timeClient.open();
+			//throw new RuntimeException();
 		} catch (SocketException e) {
 			System.out.println("open메서드 실행 오류");
 			e.printStackTrace();
+		} finally {
+			System.out.println("이부분은 성공/오류에 항상 실행됩니다.");
 		}
+		
+		
 		InetAddress address = InetAddress.getByName(TIME_SERVER);
 	    TimeInfo timeInfo = timeClient.getTime(address);
 	    //서버로부터 시간 가져오는 코드
