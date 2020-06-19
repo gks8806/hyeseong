@@ -26,6 +26,11 @@ class MemberVO {
 	public void setName(String name) {
 		this.name = name;
 	}
+	@Override
+	public String toString() {
+		return "MemberVO [name=" + name + ", age=" + age + ", phoneNum=" + phoneNum + "]";
+	}
+	
 }
 //시스템아웃프린트가아닌 Service클래스를 이용해서출력하는 이유 printMembers 뿐만아니라 updateMembers, deleteMembers등 다양한 구조를 잡을 수 있어서
 class MemberService{
