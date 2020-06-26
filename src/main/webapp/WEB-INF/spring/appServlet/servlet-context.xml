@@ -20,8 +20,8 @@
 		<beans:property name="prefix" value="/WEB-INF/views/" />
 		<beans:property name="suffix" value=".jsp" />
 	</beans:bean>
-	
-	<context:component-scan base-package="org.edu.controller" />
+	<!--org.edu.controller패키지에있는 클래스가 이 서블랙안에 콤포넌트 스캔을 통해 경로설정 -->
+	<context:component-scan base-package="org.edu.controller" /> 
 	
 	
 	
