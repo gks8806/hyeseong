@@ -38,6 +38,11 @@ public void deleteBoardVO(Integer bno) throws Exception {
 	boardDAO.deleteBoard(bno);
 	
 }
+
+@Override
+public BoardVO viewBoard(Integer bno) throws Exception {
+	return boardDAO.viewBoard(bno);
+}
    
   
    

@@ -9,4 +9,5 @@ public interface IF_BoardService {
    public List<BoardVO> selectBoard() throws Exception;
    public void updateBoardVO(BoardVO boardVO) throws Exception;
    public void deleteBoardVO(Integer bno) throws Exception;
+   public BoardVO viewBoard(Integer bno) throws Exception;
 }

@@ -39,4 +39,10 @@ public class MemberDAOImpl implements IF_MemberDAO {
       
    }
 
+   @Override
+   public MemberVO viewMember(String user_id) throws Exception {
+	return sqlSession.selectOne(mapperQuery + ".viewMember", user_id);
+	
+   }
+
 }

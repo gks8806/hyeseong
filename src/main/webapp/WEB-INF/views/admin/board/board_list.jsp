@@ -65,7 +65,7 @@
                     <tr>
                       <th>BNO</th>
                       <th>TITLE</th>
-                      <th>WRITE</th>
+                      <th>WRITER</th>
                       <th>REGDATE</th>
                       <th>VIEWCNT</th>
                     </tr>
@@ -74,14 +74,14 @@
                   <c:forEach items="${boardList}" var="boardVO" varStatus="status">
                   <tr>
                       <td>${boardVO.bno}</td>
-                      <td>${boardVO.title}</td>
-                      <td>${board.writer}</td>
+                      <td><a href="/admin/board/view?bno=${boardVO.bno}">${boardVO.title}</a></td>
+                      <td>${boardVO.writer}</td>
                       <td><span class="tag tag-success">${boardVO.regdate}</span></td>
                       <td><span class="badge badge-danger right">${boardVO.view_count}</span></td>
                     </tr>
                   </c:forEach>  
                   </tbody>
-            <td> <button type="submit" class="btn btn-primary">CREATE</button>
+            <td> <a href="/admin/board/write"  class="btn btn-primary">CREATE</a>
                </td>
            <td>
               <nav aria-label="Contacts Page Navigation">
