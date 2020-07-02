@@ -36,7 +36,7 @@ if('${msg}' == "success"){
 						</div>
 						<!-- /.card-header -->
 						<div class="card-body">
-							<form role="form">
+							<form role="form" action="/admin/member/delete" method="post">
 								<div class="row">
 									<div class="col-sm-12">
 										<!-- text input -->
@@ -89,6 +89,7 @@ if('${msg}' == "success"){
 								</div>
 								</div>
 								</div>
+								<input type="hidden" name="user_id" value="${memberVO.user_id}" >
 							</form>
 						</div>
 						<!-- /.content-header -->

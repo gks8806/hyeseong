@@ -1,8 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
-<%@ include file="../include/header.jsp"  %>
-
+<%@ include file="../include/header.jsp" %>
 <!-- Content Wrapper. Contains page content -->
 		<div class="content-wrapper">
 			<!-- Content Header (Page header) -->
@@ -32,7 +31,7 @@
 						</div>
 						<!-- /.card-header -->
 						<div class="card-body">
-							<form role="form" action="/admin/board/write" method="post">
+							<form role="form" action="/admin/board/write" method="post" encType="multipart/form-data">
 								<div class="row">
 									<div class="col-sm-12">
 										<!-- text input -->
@@ -55,7 +54,7 @@
 										<!-- textarea -->
 										<div class="form-group">
 											<label>Writer</label>
-											<input type="text" name="writer"
+											<input name="writer" type="text"
 												class="form-control" placeholder="Enter ...">
 										</div>
 									</div>
@@ -87,13 +86,14 @@
 							</form>
 						</div>
 						<!-- /.content-header -->
+
 						<!-- Main content -->
 						<div class="content"></div>
 						<!-- .content  -->
-					</div>	
+					</div>
+					
 				</div>
 			</div>
 		</div>
-		<!-- /content w -->
-		
-<%@ include file="../include/footer.jsp"  %>
+		<!-- ./Content Wrapper -->
+<%@ include file="../include/footer.jsp" %> 

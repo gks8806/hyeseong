@@ -3,15 +3,16 @@ package org.edu.vo;
 import java.util.Date;
 
 public class BoardVO {
-
-	private Integer bno;//클래스니까 매서드실행
+	private Integer bno;
 	private String title;
 	private String content;
 	private String writer;
 	private Date regdate;
 	private Date update_date;
-	private int view_count; //매서드실행없이 보여주기만
+	private int view_count;
 	private int reply_count;
+	
+	private String[] files;//첨부파일용 변수 추가
 	
 	public Integer getBno() {
 		return bno;
@@ -68,7 +69,13 @@ public class BoardVO {
 				+ regdate + ", update_date=" + update_date + ", view_count=" + view_count + ", reply_count="
 				+ reply_count + "]";
 	}
+	public String[] getFiles() {
+		return files;
+	}
+	public void setFiles(String[] files) {
+		this.files = files;
+	}
 	
-
-
+	
+	
 }
