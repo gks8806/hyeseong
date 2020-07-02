@@ -61,7 +61,8 @@
 										<div class="col-sm-12">
 										<!-- text input -->
 										<div class="form-group">
-											<label>FileDownlaod</label> <br> ${boardVO.files[0]}
+											<label>FileDownlaod</label> <br> 
+											<a href="/download?filename=${boardVO.files[0]}">${boardVO.files[0]}</a>
 										</div>
 									</div>
 									<div class="buttons"> <!-- 원하는 bno값을 갖고오기위해서 ?bno하고 입력구문넣어줌 -->
