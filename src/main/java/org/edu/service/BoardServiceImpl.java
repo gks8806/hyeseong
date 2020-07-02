@@ -11,13 +11,15 @@ import org.edu.vo.MemberVO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 @Service
 public class BoardServiceImpl implements IF_BoardService {
 
 	@Inject
 	private IF_BoardDAO boardDAO;
-
+	
+	@Transactional
 	@Override
 	public void insertBoard(BoardVO boardVO) throws Exception {
 		boardDAO.insertBoard(boardVO);
@@ -47,6 +49,11 @@ public class BoardServiceImpl implements IF_BoardService {
 	@Override
 	public BoardVO viewBoard(Integer bno) throws Exception {
 		return boardDAO.viewBoard(bno);
+	}
+
+	@Override
+	public String selectAttach(Integer bno) throws Exception {
+		return boardDAO.selectAttach(bno);
 	}
 
 }

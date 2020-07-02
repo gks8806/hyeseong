@@ -1,8 +1,11 @@
 package org.edu.controller;
 
+import java.io.File;
 import java.util.List;
 import java.util.Locale;
+import java.util.UUID;
 
+import javax.annotation.Resource;
 import javax.inject.Inject;
 
 import org.edu.service.IF_BoardService;
@@ -11,9 +14,11 @@ import org.edu.vo.BoardVO;
 import org.edu.vo.MemberVO;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.util.FileCopyUtils;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 @Controller
@@ -24,7 +29,10 @@ public class AdminController {
 	
 	@Inject
 	private IF_MemberService memberService;
-	
+	//첨부파일 업로드 경로 변수값으로 가져옴 servlet-context
+	@Resource(name="uploadPath")
+	private String uploadpath;
+
 	/**
 	 * 게시물관리 리스트 입니다.
 	 * @throws Exception 
@@ -41,12 +49,23 @@ public class AdminController {
 	 * 게시물관리 상세보기 입니다.
 	 * @throws Exception 
 	 */
-	@RequestMapping(value = "/admin/board/view", method = RequestMethod.GET)
-	public String boardView(@RequestParam("bno") Integer bno,Locale locale, Model model) throws Exception {
-		BoardVO boardVO = boardService.viewBoard(bno);
-		model.addAttribute("boardVO", boardVO);
-		return "admin/board/board_view";
-	}
+	 @RequestMapping(value = "/admin/board/view", method = RequestMethod.GET)
+	   public String boardView(@RequestParam("bno") Integer bno,Locale locale, Model model) throws Exception {
+	      BoardVO boardVO = boardService.viewBoard(bno);
+	      //여기서 부터 첨부파일명 때문에 추가
+	      String files = boardService.selectAttach(bno);
+	      /*String[] filenames = {};
+	      for(String fileName : files) {
+	      filenames = new String[] {fileName};//형변환
+	      }*/
+	      //여러개 파일에서 1개 파일만 받는 것으로 변경
+	      String[] filenames = new String[] {files};
+	      boardVO.setFiles(filenames);//String[]
+	      //여기까지 첨부파일때문에 추가
+	      model.addAttribute("boardVO", boardVO);
+	      return "admin/board/board_view";
+	   }
+
 	
 	/**
 	 * 게시물관리 > 등록 입니다.
@@ -58,8 +77,20 @@ public class AdminController {
 		return "admin/board/board_write";
 	}
 	@RequestMapping(value = "/admin/board/write", method = RequestMethod.POST)
-	public String boardWrite(BoardVO boardVO,Locale locale, RedirectAttributes rdat) throws Exception {
+	public String boardWrite(MultipartFile file,BoardVO boardVO,Locale locale, RedirectAttributes rdat) throws Exception {
+		String originalName = file.getOriginalFilename();//jsp에서 전송받은 파일의 이름 가져옴
+		UUID uid = UUID.randomUUID();//랜덤문자 구하기
+		String saveName = uid.toString() + "." + originalName.split("\\.")[1];//한글 파일명 처리때문에
+		String[] files = new String[] {saveName};//saveName을 형변환 get set으로 사용하려고 
+		boardVO.setFiles(files);
 		boardService.insertBoard(boardVO);
+		//위는 DB에 첨부파일명을 저장
+		//여기서부터 실제 파일을 폴더에 저장하기 시작
+		byte[] fileData = file.getBytes();//전송한 첫번째 파일이 fileData에 들어감
+		File target = new File(uploadpath, saveName);//
+		FileCopyUtils.copy(fileData, target);
+		
+		
 		rdat.addFlashAttribute("msg", "입력");
 		return "redirect:/admin/board/list";
 	}
