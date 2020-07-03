@@ -1,6 +1,8 @@
 package org.edu.dao;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import javax.inject.Inject;
 
@@ -54,6 +56,15 @@ public class BoardDAOImpl implements IF_BoardDAO {
 	@Override
 	public void deleteAttach(Integer bno) throws Exception {
 		sqlSession.delete(mapperQuery + ".deleteAttach", bno);
+		
+	}
+
+	@Override
+	public void upadteAttach(String fullName, Integer bno) throws Exception {
+		Map<String, Object> paramMap = new HashMap<String, Object>(); //매개변수 2개인 값을 넣기위해
+		paramMap.put("bno", bno);//paramMap 변수지정해서 메서드구현
+		paramMap.put("fullname", fullName);
+		sqlSession.insert(mapperQuery + ".updateAttach", paramMap);
 		
 	}
 

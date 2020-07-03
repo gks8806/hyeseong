@@ -1,6 +1,8 @@
 package org.edu.controller;
 
 import java.io.File;
+import java.io.IOException;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Locale;
 import java.util.UUID;
@@ -47,7 +49,20 @@ public class AdminController {
 		response.setHeader("Content-Disposition", "attachment; filename=" + fileName);
 		return new FileSystemResource(file);
 		}
-		
+	/**
+	 * 파일 업로드 메서드(공통)	
+	 * @throws IOException 
+	 */
+	public String[] fileUpload(MultipartFile file) throws IOException {
+		String originalName = file.getOriginalFilename();//jsp에서 전송받은 파일의 이름 가져옴
+		UUID uid = UUID.randomUUID();//랜덤문자 구하기
+		String saveName = uid.toString() + "." + originalName.split("\\.")[1];//한글 파일명 처리때문에
+		String[] files = new String[] {saveName};//saveName을 형변환 get set으로 사용하려고 
+		byte[] fileData = file.getBytes();//전송한 첫번째 파일이 fileData에 들어감
+		File target = new File(uploadpath, saveName);
+		FileCopyUtils.copy(fileData, target);
+		return files;
+	}
 	/**
 	 * 게시물관리 리스트 입니다.
 	 * @throws Exception 
@@ -69,10 +84,12 @@ public class AdminController {
 	      BoardVO boardVO = boardService.viewBoard(bno);
 	      //여기서 부터 첨부파일명 때문에 추가
 	      List<String> files = boardService.selectAttach(bno);
-	      String[] filenames = {};
-	      for(String fileName : files) {
-	      filenames = new String[] {fileName};//형변환
-	      }
+			String[] filenames = new String[files.size()];
+			int cnt = 0;
+			for(String fileName : files) {
+				filenames[cnt++] = fileName; 
+			}
+	      
 	      //여러개 파일에서 1개 파일만 받는 것으로 변경
 	      //String[] filenames = new String[] {files};
 	      boardVO.setFiles(filenames);//String[]
@@ -98,17 +115,9 @@ public class AdminController {
 			//첨부파일 없이 저장
 			boardService.insertBoard(boardVO); 
 		}else {
-			String originalName = file.getOriginalFilename();//jsp에서 전송받은 파일의 이름 가져옴
-			UUID uid = UUID.randomUUID();//랜덤문자 구하기
-			String saveName = uid.toString() + "." + originalName.split("\\.")[1];//한글 파일명 처리때문에
-			String[] files = new String[] {saveName};//saveName을 형변환 get set으로 사용하려고 
+			String[] files = fileUpload(file);
 			boardVO.setFiles(files);
-			boardService.insertBoard(boardVO);
-			//위는 DB에 첨부파일명을 저장
-			//여기서부터 실제 파일을 폴더에 저장하기 시작
-			byte[] fileData = file.getBytes();//전송한 첫번째 파일이 fileData에 들어감
-			File target = new File(uploadpath, saveName);//
-			FileCopyUtils.copy(fileData, target);
+			boardService.insertBoard(boardVO);	
 		}
 		
 		
@@ -128,8 +137,26 @@ public class AdminController {
 		return "admin/board/board_update";
 	}
 	@RequestMapping(value = "/admin/board/update", method = RequestMethod.POST)
-	public String boardUpdate(BoardVO boardVO,Locale locale, RedirectAttributes rdat) throws Exception {
-		boardService.updateBoard(boardVO);
+	public String boardUpdate(MultipartFile file, BoardVO boardVO,Locale locale, RedirectAttributes rdat) throws Exception {
+		if(file.getOriginalFilename() == "") {//조건:첨부파이 전송 값이 없다면
+			boardService.updateBoard(boardVO);
+		}else {
+			//이전 첨부파일 삭제처리(아래)
+			List<String> delFiles = boardService.selectAttach(boardVO.getBno());
+			for(String fileName : delFiles) {
+				//삭제 명령문 추가(아래)
+				File target = new File(uploadpath, fileName);
+				if(target.exists()) { //조건 :해당경로에 파일명이 존재하면
+					target.delete(); //퍼알석재
+				}//End if
+			}//End for
+			//아래서 부터 신규 파일 업로드
+			String[] files = fileUpload(file);//실제 파일업로드후 파일명 리턴
+			boardVO.setFiles(files);//데이터베이스 <-> VO(get,set) <-> DAO클래스
+			boardService.updateBoard(boardVO);
+		}//End if
+		
+		
 		rdat.addFlashAttribute("msg", "수정");
 		return "redirect:/admin/board/view?bno=" + boardVO.getBno();
 	}
@@ -140,7 +167,16 @@ public class AdminController {
 	 */
 	@RequestMapping(value = "/admin/board/delete", method = RequestMethod.POST)
 	public String boardDelete(@RequestParam("bno") Integer bno, Locale locale, RedirectAttributes rdat) throws Exception {
+		List<String> files = boardService.selectAttach(bno);
 		boardService.deleteBoard(bno);
+		//첨부파일 삭제(아래)
+		for(String fileName : files) {
+			//삭제 명령문 추가(아래)
+			File target = new File(uploadpath, fileName);
+			if(target.exists()) {
+				target.delete();
+			}
+		}
 		
 		rdat.addFlashAttribute("msg", "삭제");
 		return "redirect:/admin/board/list";
