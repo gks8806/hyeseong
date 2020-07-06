@@ -66,9 +66,9 @@
 										</div>
 									</div>
 									<div class="buttons"> <!-- 원하는 bno값을 갖고오기위해서 ?bno하고 입력구문넣어줌 -->
-										<a href="/admin/board/update?bno=${boardVO.bno}" class="btn btn-warning">UPDATE</a>
+										<a href="/admin/board/update?bno=${boardVO.bno}&page=${pageVO.page}" class="btn btn-warning">UPDATE</a>
 										<button type="submit" class="btn btn-danger">DELETE</button>
-										<a href="/admin/board/list" class="btn btn-primary">LIST ALL</a>
+										<a href="/admin/board/list?page=${pageVO.page}" class="btn btn-primary">LIST ALL</a>
 									</div>
 								</div>
 							<input type="hidden" name="bno" value="${boardVO.bno}">

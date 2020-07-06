@@ -81,7 +81,7 @@
 										<div class="buttons">
 											<input type="hidden" name="bno" value="${boardVO.bno}">
 											<button type="submit" class="btn btn-warning">Submit</button>
-											<a href="/admin/board/list" class="btn btn-primary">LIST ALL</a>
+											<a href="/admin/board/list?page=${pageVO.page}" class="btn btn-primary">LIST ALL</a>
 										</div>
 									</div>
 								</div>

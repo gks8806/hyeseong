@@ -69,6 +69,11 @@ public class BoardDAOImpl implements IF_BoardDAO {
 		
 	}
 
+	@Override
+	public int countBno() throws Exception {
+		return sqlSession.selectOne(mapperQuery + ".countBno");
+	}
+
 	
 	
 }
