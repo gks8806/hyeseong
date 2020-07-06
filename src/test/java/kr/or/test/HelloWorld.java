@@ -17,6 +17,24 @@ class SnowTire extends Tire { //상속=extends=>부모
 public class HelloWorld {
 
 	public static void main(String[] args) {
+		//(page:jsp클릭변수 -1) * perPageNum(페이지당보여줄개수10);
+		int startBno = (1 - 1) * 10; //1페이지
+		System.out.println("쿼리변수(1page - 1) * perPageNum = " + startBno);
+		startBno = (2 - 1) * 10; //2페이지
+		System.out.println("쿼리변수(2page - 1) * perPageNum = " + startBno);
+		startBno = (3 - 1) * 10; //3페이지
+		System.out.println("쿼리변수(3page - 1) * perPageNum = " + startBno);
+		
+		//ceil함수 천장함수 사용법  (홈페이지하단에 페이지넘버렁) 1페이지를 클릭하면 endpage= 10, 2페이지3페이지도 마찬가지 
+		//11페이지면endpage20나옴
+		int endpage = (int)(Math.ceil(1/10.0)*10);
+		System.out.println("Math.ceil(1page/10.0)*10 = "+endpage);
+		endpage = (int)(Math.ceil(2/10.0)*10);
+		System.out.println("Math.ceil(2page/10.0)*10 = "+endpage);
+		endpage = (int)(Math.ceil(3/10.0)*10);
+		System.out.println("Math.ceil(3page/10.0)*10 = "+endpage);
+		
+		
 		List<String> files = new ArrayList<>();
 		files.add("sample1.jpg");
 		files.add("sample2.jpg");
