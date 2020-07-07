@@ -27,20 +27,19 @@
                 </div>
                 </div>
                 </div>
-                <div class="col-1" style="display:inline-block" >
-                        <select class="form-control">
-                          <option>--</option>
-                        </select>
-                        </div>
-                        <div class="search" style="display:inline">
-     <input type="text" name="search_keyword" placeholder="">
-<div class="button" style="display:inline">
-     <button name="btn_search">검색</button>
-</div>
-<div class="button" style="display:inline">
-     <button>새글쓰기</button>
-     </div>
-                        </div>
+               <form action="/admin/board/list">
+               <div class="col-2" style="display:inline-block" >
+                <select name="searchType" class="form-control">
+                 <option value="all">전체</option>
+                </select>
+               </div>
+               <div class="search" style="display:inline">
+			   <input type="text" name="searchKeyword" placeholder="">
+			   <div class="button" style="display:inline">
+			    <button>검색</button>
+				</div>
+              </div>
+              </form>
     
 </div>
         <div class="col-12">
@@ -88,15 +87,15 @@
             <ul class="pagination" style="position:relative;left:40%;">
             <c:if test="${pageVO.prev}">
                <li class="page-item">
-               <a class="page-link" href="/admin/board/list?page=${pageVO.startPage-1}">이전</a>
+               <a class="page-link" href="/admin/board/list?page=${pageVO.startPage-1}&searchType=${pageVO.searchType}&searchKeyword=${pageVO.searchKeyword}">이전</a>
                </li>
                </c:if>
             <c:forEach begin="${pageVO.startPage}" end="${pageVO.endPage}" var="idx">
-               <li class='page-item <c:out value="${idx==pageVO.page?'active':''}"/>'><a href="/admin/board/list?page=${idx}" class="page-link">${idx}</a></li>
+               <li class='page-item <c:out value="${idx==pageVO.page?'active':''}"/>'><a href="/admin/board/list?page=${idx}&searchType=${pageVO.searchType}&searchKeyword=${pageVO.searchKeyword}" class="page-link">${idx}</a></li>
             </c:forEach>
              <c:if test="${pageVO.next}">
                <li class="page-item">
-               <a class="page-link" href="/admin/board/list?page=${pageVO.endPage+1}">다음</a>
+               <a class="page-link" href="/admin/board/list?page=${pageVO.endPage+1}&searchType=${pageVO.searchType}&searchKeyword=${pageVO.searchKeyword}">다음</a>
                </li>
                </c:if>
              </ul>
