@@ -15,14 +15,34 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 
 
 <mapper namespace="org.edu.dao.IF_MemberDAO">
-
+	<!-- 공통사용 검색쿼리 -->
+	<sql id="sqlwhere">
+	<if test="searchType !=null"><!-- null이 아닐 때 실행-->
+		AND (
+		user_name LIKE CONCAT('%',#{searchKeyword},'%')
+		OR
+		user_id LIKE CONCAT('%',#{searchKeyword},'%')
+		OR
+		email LIKE CONCAT('%',#{searchKeyword},'%')
+		)
+		</if>
+	</sql>
    <insert id="insertMember">
       insert into tbl_member (user_id,user_pw,user_name,email,point,enabled,levels,reg_date)
       values (#{user_id},#{user_pw},#{user_name},#{email},#{point},#{enabled},#{levels},now())
    </insert>
    <select id="selectMember" resultType="org.edu.vo.MemberVO">
-      select * from tbl_member order by reg_date DESC
+      select * from tbl_member
+      WHERE 1 = 1<!-- 조건문이 더 들어갈 수 있어서 AND때문에 강제조건 삽입 -->
+		<include refid="sqlwhere"></include>
+		ORDER BY reg_date DESC
+		LIMIT #{startNo}, #{perPageNum}
    </select>
+   <select id="countUserId" resultType="int">
+		select count(*) from tbl_member
+		where 1 = 1
+		<include refid="sqlwhere"></include>
+	</select>
    <update id="updateMember">
       update tbl_member set
       user_pw = #{user_pw},

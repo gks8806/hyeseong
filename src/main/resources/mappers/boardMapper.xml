@@ -36,7 +36,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		WHERE 1 = 1<!-- 조건문이 더 들어갈 수 있어서 AND때문에 강제조건 삽입 -->
 		<include refid="sqlwhere"></include>
 		ORDER BY bno DESC
-		LIMIT #{startBno}, #{perPageNum}
+		LIMIT #{startNo}, #{perPageNum}
 	</select>
 	<select id="countBno" resultType="int">
 		select count(*) from tbl_board
