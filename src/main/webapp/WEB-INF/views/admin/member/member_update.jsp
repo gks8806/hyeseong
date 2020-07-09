@@ -48,8 +48,8 @@
                               <!-- text input -->
                               <div class="form-group">
                                  <label>user_pw</label> 
-                                 <input value="${memberVO.user_pw}" name="user_pw" type="text" class="form-control"
-                                    placeholder="Enter user_pw">
+                                 <input value="" name="user_pw" type="text" class="form-control"
+                                    placeholder="${memberVO.user_pw}">
                               </div>
                            </div>
 
@@ -101,7 +101,7 @@
                         </div>
                         </div>
                         </div>
-                        <input type="hidden" name="page" value="${pageVO.page}">
+                        <input type="hidden" name="page" value="${pageVO.page}" >
                      </form>
                   </div>
                   <!-- /.content-header -->

@@ -80,7 +80,7 @@
                     <c:forEach items="${memberList}" var="memberVO" varStatus="status">
                     <tr>
                       <td>${memberVO.user_id}</td>
-                      <td><a href="/admin/member/view?user_id=${memberVO.user_id}${memberVO.point}&page=${pageVO.page}">${memberVO.user_name}[${memberVO.point}]</a></td>
+                      <td><a href="/admin/member/view?user_id=${memberVO.user_id}&page=${pageVO.page}">${memberVO.user_name}[${memberVO.point}]</a></td>
                       <td>${memberVO.email}</td>
                       <td><span class="tag tag-success">${memberVO.enabled}</span></td>
 					<td><span class="tag tag-success">
