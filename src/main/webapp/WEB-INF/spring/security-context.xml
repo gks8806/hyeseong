@@ -22,6 +22,7 @@
 	    <security:intercept-url pattern="/**/delete" access="hasAnyRole('ROLE_USER','ROLE_ADMIN')" />
 	    <security:intercept-url pattern="/**" access="permitAll" />
 	    <security:csrf disabled="true" />
+	    <!-- 첫번째 겟 방식, 두번째 포스트방식으로 처리 , 네번째/login_success 홈컨트롤러에 나온 경로, 5번째 로그인에 실패핧 때 메시지 출력 -->
 	    <security:form-login
 	    	login-page="/login"
 	    	login-processing-url="/login"
