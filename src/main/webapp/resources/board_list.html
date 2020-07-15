@@ -134,7 +134,7 @@
                 </div>
                 </div>
                 <div class="col-1" style="display:inline-block" >
-                        <select class="form-control">
+                        <select id="searchType" class="form-control">
                           <option>--</option>
                         </select>
                         </div>
@@ -265,6 +265,34 @@
 <script src="plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
 <!-- AdminLTE App -->
 <script src="dist/js/adminlte.min.js"></script>
-
+<script>
+//---------고전적인자바스크립트방식-----//
+function myFunc() {//function 함수이름 () { }
+	alert('테스트');
+	
+}
+myFunc();//함수호출==실행
+//--------jquery스크립트방식---------->
+$(document).ready(function(){//함수명 없이 실행 콜백 함수.
+	alert('테스트2');
+	var cnt = 131;
+	$(".btn-primary").bind("click",function(event){
+		$("<tr><td>"+cnt+"</td><td>한줄추가</td><td>내용추가</td><td>2020.07.15</td><td>100</td></tr>").prependTo("table");
+		cnt = cnt + 1;
+	});
+	
+	//$("table thead tr").css({"background-color":"skyblue"});
+	//$("#searchType").css({"width":"150px"});//제이쿼리용 자바스크립트
+	//document.getElementById("searchType").style.width="200px";//오리지널 자바스크립트
+	//$(".btn-primary").css({"background-color":"red"});
+	//$("tr").css("background","red");
+	//$("tr").css({"background":"red","color":"blue"});
+});
+//==========================//
+//	function myFunc() {//콜백함수 호출없이 실행
+	//alert('테스트2');	
+//}
+	
+</script>
 </body>
 </html>

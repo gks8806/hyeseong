@@ -74,6 +74,11 @@ public class BoardDAOImpl implements IF_BoardDAO {
 		return sqlSession.selectOne(mapperQuery + ".countBno", pageVO);
 	}
 
+	@Override
+	public void updateViewCount(Integer bno) throws Exception {
+		sqlSession.update(mapperQuery + ".updateViewCount", bno);
+	}
+
 	
 	
 }

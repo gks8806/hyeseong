@@ -44,14 +44,36 @@
 				</c:if>
 			</ul>
 			<p class="btn_line txt_right">
+			<c:if test="${session_enabled}">
+				<a href="javascript:;" id="deleteBno" class="btn_bbs">삭제</a>
+				<a href="/board/update?page=${pageVO.page}&bno=${boardVO.bno}" class="btn_bbs">수정</a>
+			</c:if>
 				<a href="/board/list?page=${pageVO.page}" class="btn_bbs">목록</a>
 			</p>
-			
 		</div>
 		<!-- //bodytext_area -->
 
 	</div>
 	<!-- //container -->
-
+	<!-- 화면에는 안보이지만 작동되는 삭제전용폼   -->
+	<form id="deleteForm">
+		<input name="bno" id="bno" type="hidden" value="${boardVO.bno}">
+	</form>
+	<script>
+	$(document).ready(function(){
+		$("#deleteBno").bind("click",function(){
+			if(confirm("정말 삭제하시겠습니까?")){
+				var formobj = $("#deleteForm");
+				formobj.attr("action","/board/delete");
+				formobj.attr("method","post");
+				//alert($("#bno").val());//디버그용
+				formobj.submit();
+			}else{
+				return false;
+			}
+			
+		})
+	});
+	</script>
 <%@ include file="../include/footer.jsp" %>
    
