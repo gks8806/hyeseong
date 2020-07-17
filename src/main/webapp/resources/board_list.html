@@ -166,7 +166,7 @@
               </div>
               <!-- /.card-header -->
               <div class="card-body table-responsive p-0">
-                <table class="table table-hover text-nowrap">
+                <table class="table table-hover text-nowrap even_table">
                   <thead>
                     <tr>
                       <th>BNO</th>
@@ -176,7 +176,7 @@
                       <th>VIEWCNT</th>
                     </tr>
                   </thead>
-                  <tbody>
+                  <tbody class="even_color">
                     <tr>
                       <td>130</td>
                       <td>홈페이지 오픈 테스트</td>
@@ -206,6 +206,9 @@
                       <td><span class="badge badge-danger right">0</span></td>
                       </tr>
                   </tbody>
+                 </table>
+                 <table class="table table-hover text-nowrap">
+                  <tr>
             <td> <button type="submit" class="btn btn-primary">CREATE</button>
                </td>
            <td>
@@ -215,6 +218,7 @@
             </ul>
           </nav>
                </td>
+               </tr>
                 </table>
               </div>
               <!-- /.card-body -->
@@ -275,10 +279,14 @@ myFunc();//함수호출==실행
 //--------jquery스크립트방식---------->
 $(document).ready(function(){//함수명 없이 실행 콜백 함수.
 	alert('테스트2');
+	$(".even_table tbody tr:even").css({"background-color":"black","color":"white"});
 	var cnt = 131;
 	$(".btn-primary").bind("click",function(event){
-		$("<tr><td>"+cnt+"</td><td>한줄추가</td><td>내용추가</td><td>2020.07.15</td><td>100</td></tr>").prependTo("table");
-		cnt = cnt + 1;
+		$(".even_table tbody tr").each(function(index,item){
+			$(item).addClass("hong" + index);//class="hong_0","hong_1"	
+		})
+		//$("<tr><td>"+cnt+"</td><td>한줄추가</td><td>내용추가</td><td>2020.07.15</td><td>100</td></tr>").prependTo(".even_table tbody");
+		//cnt = cnt + 1;
 	});
 	
 	//$("table thead tr").css({"background-color":"skyblue"});
